@@ -1,0 +1,17 @@
+#!name = Tự Động Tham Gia TestFlight
+#!desc = Tự động theo dõi slot TestFlight và thêm slot mới ngay khi có sẵn.
+#!openUrl = 
+#!author = ducwtaif
+#!input = APP_ID
+
+
+[Rule]
+DOMAIN, testflight.apple.com, PROXY
+
+[Script]
+http-request ^https?:\/\/testflight\.apple\.com\/v3\/accounts\/.*\/apps$ script-path = https://raw.githubusercontent.com/ductaihjhj/ducwtaif/main/tf_key.js?token=GHSAT0AAAAAACSKRIRLFX7G7LLFE5ZCMABQZSN5X7A, tag = Thu nhập thông tin TestFlight
+http-request ^https://testflight.apple.com/join/(.*) script-path = https://raw.githubusercontent.com/ductaihjhj/ducwtaif/main/tf_key.js?token=GHSAT0AAAAAACSKRIRLFX7G7LLFE5ZCMABQZSN5X7A, tag = Lấy lại ID
+cron "*/1 * * * * *" script-path = https://raw.githubusercontent.com/ductaihjhj/ducwtaif/main/autojoin.js?token=GHSAT0AAAAAACSKRIRKVLRPCXM6BUJ45RZEZSN5XPQ, tag = Tự động tham gia TestFlight, timeout = 180
+
+[Mitm]
+hostname = testflight.apple.com
