@@ -52,7 +52,7 @@ for (const [entitlementId, productInfo] of Object.entries(productEntitlementMapp
     // Add product identifier to subscriptions
     jsonToUpdate.subscriber.subscriptions[productIdentifier] = {
       "expires_date": "9692-01-01T01:01:01Z",
-      "original_purchase_date": "2008-08-21T01:01:01Z", //sửa ngày
+      "original_purchase_date": "2006-01-03T01:01:01Z", //sửa ngày
       "purchase_date": "2000-08-21T01:01:01Z",
       "is_sandbox" : false,
       "ownership_type": "PURCHASED",
